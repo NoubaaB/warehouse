@@ -1,0 +1,50 @@
+@import 'vuetify/styles';
+@import '@mdi/font/css/materialdesignicons.css';
+
+/* Modern Industrial Theme Custom Styling */
+:root {
+  --primary-color: #2563eb;
+  --font-family: 'Inter', system-ui, -apple-system, sans-serif;
+}
+
+body {
+  font-family: var(--font-family);
+  margin: 0;
+  padding: 0;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+::-webkit-scrollbar-track {
+  background: rgba(15, 23, 42, 0.6);
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(148, 163, 184, 0.4);
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(148, 163, 184, 0.6);
+}
+
+.custom-input-field :deep(.v-field) {
+  border-radius: 10px !important;
+}
+
+.border-b {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08) !important;
+}
+
+.border-t {
+  border-top: 1px solid rgba(255, 255, 255, 0.08) !important;
+}
+
+.border-l {
+  border-left: 3px solid #3B82F6 !important;
+}
+
+.color-primary {
+  color: #3B82F6 !important;
+}
