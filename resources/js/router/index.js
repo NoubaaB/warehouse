@@ -7,6 +7,7 @@ import FishWarehouse from '../pages/FishWarehouse.vue';
 import ConsumableWarehouse from '../pages/ConsumableWarehouse.vue';
 import WorkforcePage from '../pages/WorkforcePage.vue';
 import SettingsPage from '../pages/SettingsPage.vue';
+import ProfilePage from '../pages/ProfilePage.vue';
 
 const routes = [
   {
@@ -53,6 +54,11 @@ const routes = [
         path: 'settings/:section?',
         name: 'settings',
         component: SettingsPage,
+      },
+      {
+        path: 'profile',
+        name: 'profile',
+        component: ProfilePage,
       },
     ],
   },

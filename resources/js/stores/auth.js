@@ -63,6 +63,40 @@ export const useAuthStore = defineStore('auth', () => {
     }
   }
 
+  async function updateProfile(data) {
+    loading.value = true;
+    try {
+      const response = await axios.put('/api/auth/profile', data);
+      user.value = response.data.user;
+      localStorage.setItem('auth_user', JSON.stringify(user.value));
+      snackbar.showSuccess(response.data.message || 'Profile updated successfully!');
+      return response.data;
+    } catch (error) {
+      const msg = error.response?.data?.message || 
+        (error.response?.data?.errors ? Object.values(error.response.data.errors).flat().join(' ') : 'Error updating profile');
+      snackbar.showError(msg);
+      throw error;
+    } finally {
+      loading.value = false;
+    }
+  }
+
+  async function updatePassword(data) {
+    loading.value = true;
+    try {
+      const response = await axios.put('/api/auth/password', data);
+      snackbar.showSuccess(response.data.message || 'Password changed successfully!');
+      return response.data;
+    } catch (error) {
+      const msg = error.response?.data?.message || 
+        (error.response?.data?.errors ? Object.values(error.response.data.errors).flat().join(' ') : 'Error updating password');
+      snackbar.showError(msg);
+      throw error;
+    } finally {
+      loading.value = false;
+    }
+  }
+
   return {
     user,
     token,
@@ -71,5 +105,7 @@ export const useAuthStore = defineStore('auth', () => {
     login,
     logout,
     fetchUser,
+    updateProfile,
+    updatePassword,
   };
 });

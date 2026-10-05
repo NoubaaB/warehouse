@@ -18,6 +18,7 @@
     "my_files": "Mes Fichiers",
     "shared": "Partagés avec moi",
     "starred": "Favoris",
+    "profile": "Profil & Sécurité",
     "logout": "Déconnexion"
   },
   "dashboard": {
@@ -140,5 +141,18 @@
     "notes": "Remarques (Optionnel)",
     "this_month": "Ce Mois",
     "last_month": "Mois Dernier"
+  },
+  "profile": {
+    "title": "Paramètres du Compte & Sécurité",
+    "subtitle": "Mettez à jour vos informations personnelles et modifiez votre mot de passe",
+    "personal_info": "Informations Personnelles",
+    "personal_info_desc": "Gérez votre nom et votre adresse e-mail",
+    "change_password": "Changer le Mot de Passe",
+    "change_password_desc": "Assurez-vous que votre compte utilise un mot de passe sécurisé",
+    "current_password": "Mot de passe actuel",
+    "new_password": "Nouveau mot de passe",
+    "confirm_password": "Confirmer le nouveau mot de passe",
+    "save_profile": "Enregistrer le Profil",
+    "update_password": "Mettre à jour le Mot de Passe"
   }
 }

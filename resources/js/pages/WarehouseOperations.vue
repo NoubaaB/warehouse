@@ -275,6 +275,32 @@
         <v-form ref="receptionForm" v-model="receptionValid" @submit.prevent="submitReception">
           <v-row>
             <v-col cols="12" sm="4">
+              <v-autocomplete
+                v-model="receptionData.voucher_type_id"
+                :items="receptionVoucherTypes"
+                item-title="name"
+                item-value="id"
+                :label="$t('vouchers.voucher_type')"
+                variant="outlined"
+                density="comfortable"
+                prepend-inner-icon="mdi-file-cog"
+                :rules="[v => !!v || 'Voucher type required']"
+                required
+                clearable
+              >
+                <template #item="{ props, item }">
+                  <v-list-item v-bind="props" :subtitle="item?.raw?.code || ''">
+                    <template #append v-if="item?.raw?.effect">
+                      <v-chip size="x-small" :color="getVoucherColor(item?.raw?.effect)" variant="tonal">
+                        {{ item?.raw?.effect }}
+                      </v-chip>
+                    </template>
+                  </v-list-item>
+                </template>
+              </v-autocomplete>
+            </v-col>
+
+            <v-col cols="12" sm="4">
               <v-text-field
                 v-model="receptionData.voucher_number"
                 :label="$t('vouchers.voucher_number')"
@@ -308,7 +334,7 @@
               ></v-select>
             </v-col>
 
-            <v-col cols="12" sm="6">
+            <v-col cols="12" sm="4">
               <v-select
                 v-model="receptionData.provider_ids"
                 :items="settingsStore.providers"
@@ -322,7 +348,7 @@
               ></v-select>
             </v-col>
 
-            <v-col cols="12" sm="6">
+            <v-col cols="12" sm="4">
               <v-text-field
                 v-model="receptionData.truck_licence"
                 :label="$t('vouchers.truck_licence')"
@@ -1066,7 +1092,15 @@ function getVoucherColor(effect) {
 // 1. RECEPTION DIALOG STATE
 const receptionDialog = ref(false);
 const receptionValid = ref(false);
+
+const receptionVoucherTypes = computed(() => {
+  if (!settingsStore.voucherTypes || settingsStore.voucherTypes.length === 0) return [];
+  const stockInTypes = settingsStore.voucherTypes.filter(t => t.effect === 'stock_in');
+  return stockInTypes.length > 0 ? stockInTypes : settingsStore.voucherTypes;
+});
+
 const receptionData = ref({
+  voucher_type_id: null,
   voucher_number: '',
   voucher_date: new Date().toISOString().slice(0, 10),
   fish_warehouse_id: null,
@@ -1076,7 +1110,7 @@ const receptionData = ref({
 });
 
 function openReceptionModal() {
-  const typeId = settingsStore.voucherTypes.find(t => t.code === 'reception')?.id;
+  const typeId = receptionVoucherTypes.value[0]?.id || settingsStore.voucherTypes[0]?.id || null;
   receptionData.value = {
     voucher_type_id: typeId,
     voucher_number: 'REC-' + Date.now().toString().slice(-6),
@@ -1132,10 +1166,8 @@ function updateBoxes(art) {
 
 async function submitReception() {
   if (!receptionValid.value) return;
-  const typeId = settingsStore.voucherTypes.find(t => t.code === 'reception')?.id;
   await vouchersStore.createVoucher({
     ...receptionData.value,
-    voucher_type_id: typeId,
   });
   receptionDialog.value = false;
 }

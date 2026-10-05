@@ -18,6 +18,7 @@
     "my_files": "My Files",
     "shared": "Shared with me",
     "starred": "Starred",
+    "profile": "Profile & Security",
     "logout": "Logout"
   },
   "dashboard": {
@@ -140,5 +141,18 @@
     "notes": "Notes (Optional)",
     "this_month": "This Month",
     "last_month": "Last Month"
+  },
+  "profile": {
+    "title": "Account Settings & Profile Security",
+    "subtitle": "Update your personal information and change your account password",
+    "personal_info": "Personal Information",
+    "personal_info_desc": "Manage your name and email address",
+    "change_password": "Change Password",
+    "change_password_desc": "Ensure your account is using a long, random password to stay secure",
+    "current_password": "Current Password",
+    "new_password": "New Password",
+    "confirm_password": "Confirm New Password",
+    "save_profile": "Save Profile",
+    "update_password": "Update Password"
   }
 }

@@ -75,6 +75,16 @@
           rounded="lg"
         ></v-list-item>
 
+        <!-- Profile & Security -->
+        <v-list-item
+          to="/profile"
+          prepend-icon="mdi-account-cog"
+          :title="$t('nav.profile')"
+          value="profile"
+          color="primary"
+          rounded="lg"
+        ></v-list-item>
+
         <!-- Settings Group -->
         <v-list-group value="settings">
           <template #activator="{ props }">
@@ -209,8 +219,9 @@
           </v-btn>
         </template>
         <v-list density="compact" class="rounded-lg">
-          <v-list-item prepend-icon="mdi-account" :title="authStore.user?.email || 'User'"></v-list-item>
+          <v-list-item prepend-icon="mdi-account" :title="authStore.user?.name || 'User'" :subtitle="authStore.user?.email || ''"></v-list-item>
           <v-divider></v-divider>
+          <v-list-item to="/profile" prepend-icon="mdi-account-cog" :title="$t('nav.profile')"></v-list-item>
           <v-list-item prepend-icon="mdi-logout" :title="$t('nav.logout')" color="error" @click="handleLogout"></v-list-item>
         </v-list>
       </v-menu>

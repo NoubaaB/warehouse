@@ -18,6 +18,7 @@
     "my_files": "Mis Archivos",
     "shared": "Compartido conmigo",
     "starred": "Destacados",
+    "profile": "Perfil y Seguridad",
     "logout": "Cerrar Sesión"
   },
   "dashboard": {
@@ -140,5 +141,18 @@
     "notes": "Notas (Opcional)",
     "this_month": "Este Mes",
     "last_month": "Mes Anterior"
+  },
+  "profile": {
+    "title": "Ajustes de Cuenta y Seguridad",
+    "subtitle": "Actualice su información personal y cambie su contraseña de cuenta",
+    "personal_info": "Información Personal",
+    "personal_info_desc": "Gestione su nombre y dirección de correo electrónico",
+    "change_password": "Cambiar Contraseña",
+    "change_password_desc": "Asegúrese de utilizar una contraseña segura para proteger su cuenta",
+    "current_password": "Contraseña actual",
+    "new_password": "Nueva contraseña",
+    "confirm_password": "Confirmar nueva contraseña",
+    "save_profile": "Guardar Perfil",
+    "update_password": "Actualizar Contraseña"
   }
 }
