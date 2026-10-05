@@ -15,6 +15,9 @@
     "voucher_types": "Types de Bons",
     "containers": "Conteneurs",
     "workforces": "Ouvriers",
+    "my_files": "Mes Fichiers",
+    "shared": "Partagés avec moi",
+    "starred": "Favoris",
     "logout": "Déconnexion"
   },
   "dashboard": {
@@ -134,6 +137,8 @@
     "bons_in_range": "Bons dans la Plage de Dates",
     "date_range": "Plage de Dates",
     "refresh": "Actualiser",
-    "notes": "Remarques (Optionnel)"
+    "notes": "Remarques (Optionnel)",
+    "this_month": "Ce Mois",
+    "last_month": "Mois Dernier"
   }
 }

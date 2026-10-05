@@ -15,6 +15,9 @@
     "voucher_types": "Tipos de Vales",
     "containers": "Contenedores",
     "workforces": "Trabajadores",
+    "my_files": "Mis Archivos",
+    "shared": "Compartido conmigo",
+    "starred": "Destacados",
     "logout": "Cerrar Sesión"
   },
   "dashboard": {
@@ -134,6 +137,8 @@
     "bons_in_range": "Vales en Rango de Fechas",
     "date_range": "Rango de Fechas",
     "refresh": "Actualizar",
-    "notes": "Notas (Opcional)"
+    "notes": "Notas (Opcional)",
+    "this_month": "Este Mes",
+    "last_month": "Mes Anterior"
   }
 }

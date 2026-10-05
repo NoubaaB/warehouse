@@ -46,13 +46,32 @@
             {{ $t('common.bons_in_range') }}: {{ filteredVouchers.length }} / {{ vouchersStore.vouchers.length }}
           </v-chip>
 
-          <v-btn size="x-small" variant="tonal" color="primary" @click="selectCurrentMonth">
-            This Month
-          </v-btn>
+          <!-- Stylish Preset Month Buttons -->
+          <v-btn-group rounded="pill" density="comfortable" class="border shadow-xs bg-surface pa-1 ga-1">
+            <v-btn
+              size="small"
+              :variant="activeRangePreset === 'current' ? 'elevated' : 'text'"
+              :color="activeRangePreset === 'current' ? 'primary' : 'grey-darken-1'"
+              prepend-icon="mdi-calendar-month"
+              rounded="pill"
+              class="text-none font-weight-bold px-4"
+              @click="selectCurrentMonth"
+            >
+              {{ $t('common.this_month') }}
+            </v-btn>
 
-          <v-btn size="x-small" variant="tonal" color="secondary" @click="selectLastMonth">
-            Last Month
-          </v-btn>
+            <v-btn
+              size="small"
+              :variant="activeRangePreset === 'last' ? 'elevated' : 'text'"
+              :color="activeRangePreset === 'last' ? 'indigo' : 'grey-darken-1'"
+              prepend-icon="mdi-calendar-clock"
+              rounded="pill"
+              class="text-none font-weight-bold px-4"
+              @click="selectLastMonth"
+            >
+              {{ $t('common.last_month') }}
+            </v-btn>
+          </v-btn-group>
 
           <v-btn
             v-if="hasActiveFilters"
@@ -901,6 +920,28 @@ const dateRange = computed(() => {
   const start = formatDateStr(vCalendarRange.value?.start);
   const end = formatDateStr(vCalendarRange.value?.end);
   return { start, end };
+});
+
+const activeRangePreset = computed(() => {
+  const currentMonthRange = getInitialMonthRange();
+  const now = new Date();
+  const year = now.getFullYear();
+  const month = now.getMonth() - 1;
+  const lastMonthRange = {
+    start: new Date(year, month, 1),
+    end: new Date(year, month + 1, 0),
+  };
+
+  const startStr = dateRange.value.start;
+  const endStr = dateRange.value.end;
+
+  if (startStr === formatDateStr(currentMonthRange.start) && endStr === formatDateStr(currentMonthRange.end)) {
+    return 'current';
+  }
+  if (startStr === formatDateStr(lastMonthRange.start) && endStr === formatDateStr(lastMonthRange.end)) {
+    return 'last';
+  }
+  return 'custom';
 });
 
 function selectCurrentMonth() {

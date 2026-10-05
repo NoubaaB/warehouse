@@ -15,6 +15,9 @@
     "voucher_types": "Voucher Types",
     "containers": "Containers",
     "workforces": "Workforces",
+    "my_files": "My Files",
+    "shared": "Shared with me",
+    "starred": "Starred",
     "logout": "Logout"
   },
   "dashboard": {
@@ -134,6 +137,8 @@
     "bons_in_range": "Bons in Date Range",
     "date_range": "Date Range",
     "refresh": "Refresh",
-    "notes": "Notes (Optional)"
+    "notes": "Notes (Optional)",
+    "this_month": "This Month",
+    "last_month": "Last Month"
   }
 }

@@ -15,6 +15,9 @@
     "voucher_types": "أنواع الإيصالات",
     "containers": "الحاويات",
     "workforces": "العمال",
+    "my_files": "ملفاتي",
+    "shared": "تمت مشاركتها معي",
+    "starred": "المفضلة",
     "logout": "تسجيل الخروج"
   },
   "dashboard": {
@@ -134,6 +137,8 @@
     "bons_in_range": "الإيصالات في النطاق",
     "date_range": "نطاق التاريخ",
     "refresh": "تحديث",
-    "notes": "ملاحظات (اختياري)"
+    "notes": "ملاحظات (اختياري)",
+    "this_month": "هذا الشهر",
+    "last_month": "الشهر الماضي"
   }
 }

@@ -6,26 +6,31 @@
     <!-- Navigation Drawer -->
     <v-navigation-drawer
       v-model="drawer"
-      app
+      expand-on-hover
+      permanent
+      rail
       elevation="2"
       class="nav-drawer"
     >
-      <div class="pa-4 d-flex align-center border-b">
-        <v-avatar color="primary" size="40" class="mr-3">
-          <v-icon icon="mdi-fish" color="white" size="24"></v-icon>
-        </v-avatar>
-        <div>
-          <div class="text-subtitle-1 font-weight-bold leading-tight">Fish Warehouse</div>
-          <div class="text-caption text-grey">PWA Management</div>
-        </div>
-      </div>
+      <v-list>
+        <v-list-item
+          prepend-icon="mdi-fish"
+          base-color="blue"
+          :subtitle="authStore.user?.email"
+          :title="authStore.user?.name"
+        ></v-list-item>
+      </v-list>
 
-      <v-list nav class="pa-2">
+      <v-divider></v-divider>
+
+      <v-list density="compact" nav>
+
         <!-- Dashboard -->
         <v-list-item
           to="/dashboard"
           prepend-icon="mdi-view-dashboard"
           :title="$t('nav.dashboard')"
+          value="dashboard"
           color="primary"
           rounded="lg"
         ></v-list-item>
@@ -35,6 +40,7 @@
           to="/warehouse-operations"
           prepend-icon="mdi-file-document-outline"
           :title="$t('nav.warehouse_operations')"
+          value="warehouse_operations"
           color="primary"
           rounded="lg"
         ></v-list-item>
@@ -44,6 +50,7 @@
           to="/fish-warehouse"
           prepend-icon="mdi-snowflake"
           :title="$t('nav.fish_warehouse')"
+          value="fish_warehouse"
           color="primary"
           rounded="lg"
         ></v-list-item>
@@ -53,6 +60,7 @@
           to="/consumable-warehouse"
           prepend-icon="mdi-package-variant-closed"
           :title="$t('nav.consumable_warehouse')"
+          value="consumable_warehouse"
           color="primary"
           rounded="lg"
         ></v-list-item>
@@ -62,12 +70,13 @@
           to="/workforce"
           prepend-icon="mdi-account-group"
           :title="$t('nav.workforce')"
+          value="workforce"
           color="primary"
           rounded="lg"
         ></v-list-item>
 
         <!-- Settings Group -->
-        <v-list-group value="Settings">
+        <v-list-group value="settings">
           <template #activator="{ props }">
             <v-list-item
               v-bind="props"
@@ -81,6 +90,7 @@
             to="/settings/providers"
             prepend-icon="mdi-truck-delivery"
             :title="$t('nav.providers')"
+            value="providers"
             rounded="lg"
           ></v-list-item>
 
@@ -88,6 +98,7 @@
             to="/settings/clients"
             prepend-icon="mdi-domain"
             :title="$t('nav.clients')"
+            value="clients"
             rounded="lg"
           ></v-list-item>
 
@@ -95,6 +106,7 @@
             to="/settings/freezing-fish"
             prepend-icon="mdi-fish"
             :title="$t('nav.freezing_fish')"
+            value="freezing_fish"
             rounded="lg"
           ></v-list-item>
 
@@ -102,6 +114,7 @@
             to="/settings/consumable-types"
             prepend-icon="mdi-archive"
             :title="$t('nav.consumable_types')"
+            value="consumable_types"
             rounded="lg"
           ></v-list-item>
 
@@ -109,6 +122,7 @@
             to="/settings/fish-warehouses"
             prepend-icon="mdi-warehouse"
             :title="$t('nav.fish_warehouses')"
+            value="fish_warehouses"
             rounded="lg"
           ></v-list-item>
 
@@ -116,6 +130,7 @@
             to="/settings/voucher-types"
             prepend-icon="mdi-file-cog"
             :title="$t('nav.voucher_types')"
+            value="voucher_types"
             rounded="lg"
           ></v-list-item>
 
@@ -123,6 +138,7 @@
             to="/settings/containers"
             prepend-icon="mdi-cube-outline"
             :title="$t('nav.containers')"
+            value="containers"
             rounded="lg"
           ></v-list-item>
 
@@ -130,6 +146,7 @@
             to="/settings/workforces"
             prepend-icon="mdi-account-hard-hat"
             :title="$t('nav.workforces')"
+            value="workforces"
             rounded="lg"
           ></v-list-item>
         </v-list-group>
